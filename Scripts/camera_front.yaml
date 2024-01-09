@@ -1,0 +1,57 @@
+alias: Camera Front
+sequence:
+  - service: script.camera_back
+    data: {}
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 15
+      milliseconds: 0
+  - service: onvif.ptz
+    target:
+      entity_id: camera.camera_profile_000
+    data:
+      move_mode: ContinuousMove
+      pan: RIGHT
+      continuous_duration: 1
+      speed: 1
+      distance: 0.1
+  - service: onvif.ptz
+    target:
+      entity_id: camera.camera_profile_000
+    data:
+      move_mode: ContinuousMove
+      pan: RIGHT
+      continuous_duration: 1
+      speed: 1
+      distance: 0.1
+  - service: onvif.ptz
+    target:
+      entity_id: camera.camera_profile_000
+    data:
+      move_mode: ContinuousMove
+      pan: RIGHT
+      continuous_duration: 1
+      speed: 1
+      distance: 0.1
+  - service: onvif.ptz
+    target:
+      entity_id: camera.camera_profile_000
+    data:
+      move_mode: ContinuousMove
+      pan: RIGHT
+      continuous_duration: 1
+      speed: 1
+      distance: 0.1
+  - service: onvif.ptz
+    target:
+      entity_id: camera.camera_profile_000
+    data:
+      move_mode: ContinuousMove
+      pan: RIGHT
+      continuous_duration: 1
+      speed: 1
+      distance: 0.1
+mode: queued
+icon: mdi:camera-flip
+max: 2

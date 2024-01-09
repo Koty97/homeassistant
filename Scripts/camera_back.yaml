@@ -1,0 +1,10 @@
+alias: Camera Back
+sequence:
+  - service: onvif.ptz
+    target:
+      entity_id: camera.camera_profile_000
+    data:
+      move_mode: GotoPreset
+      preset: "1"
+mode: single
+icon: mdi:camera-flip

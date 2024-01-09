@@ -1,0 +1,65 @@
+alias: Camera PTZ
+sequence:
+  - if:
+      - condition: template
+        value_template: "{{direction==\"left\"}}"
+    then:
+      - service: onvif.ptz
+        target:
+          entity_id: camera.camera_profile_000
+        data:
+          distance: 1
+          speed: 1
+          continuous_duration: 1
+          move_mode: ContinuousMove
+          pan: LEFT
+    else:
+      - if:
+          - condition: template
+            value_template: "{{direction==\"right\"}}"
+        then:
+          - service: onvif.ptz
+            target:
+              entity_id: camera.camera_profile_000
+            data:
+              distance: 1
+              speed: 1
+              continuous_duration: 1
+              move_mode: ContinuousMove
+              pan: RIGHT
+        else:
+          - if:
+              - condition: template
+                value_template: "{{direction==\"up\"}}"
+            then:
+              - service: onvif.ptz
+                target:
+                  entity_id: camera.camera_profile_000
+                data:
+                  distance: 1
+                  speed: 1
+                  continuous_duration: 1
+                  move_mode: ContinuousMove
+                  tilt: UP
+            else:
+              - if:
+                  - condition: template
+                    value_template: "{{direction==\"down\"}}"
+                then:
+                  - service: onvif.ptz
+                    target:
+                      entity_id: camera.camera_profile_000
+                    data:
+                      distance: 1
+                      speed: 1
+                      continuous_duration: 1
+                      move_mode: ContinuousMove
+                      tilt: DOWN
+mode: single
+icon: mdi:camera
+fields:
+  direction:
+    selector:
+      text: null
+    required: true
+    name: direction
